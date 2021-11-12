@@ -5,26 +5,93 @@ public class HandsOnArray{
   {
     // declaration type 1
     int arr[] = new int[10];
-    Arrays.fill(arr,-1);
+    // Arrays.fill(arr,-1);
     // declaration type 2
     // int arr[] = {11,22,73,54,89,65,90,17};
-      printArray(arr);
+
+    // traversing the array
+    // update
     insertionAtBegining(arr,5);
-      printArray(arr);
-    insertionAtEnd(arr,8);
-      printArray(arr);
-      insertionAtEnd(arr,8);
-        printArray(arr);
+    insertionAtBegining(arr,6);
+    insertionAtBegining(arr,7);
+    insertionAtBegining(arr,8);
+    insertionAtBegining(arr,9);
     insertionAtMid(arr,9,6);
-    printArray(arr);
+    insertionAtEnd(arr,8);
+    update(arr,3,8);
+    // access
+    System.out.println(arr[3]);
+    traverse(arr);
+    deletionAtBegining(arr);
+    deletionAtMid(arr,2);
+    deletionAtEnd(arr);
   }
-  static void printArray(int arr[]){
+  static void traverse(int arr[]){
     for(int i=0;i<arr.length;i++)
     {
       System.out.print(arr[i]+" ");
     }
     System.out.println();
   }
+
+  static void deletionAtBegining(int arr[])
+  {
+    int lastIndex=arr.length-1;
+    if(arr.length<=0)
+    {
+      System.out.println("Array is Empty");
+      return;
+    }
+    // shifting logic
+    for(int i=1;i<arr.length;i++)
+    {
+      arr[i-1] = arr[i];
+    }
+    arr[lastIndex] = -1;
+  }
+
+  static void deletionAtEnd(int arr[])
+  {
+    int lastIndex=arr.length-1;
+    if(arr.length<=0)
+    {
+      System.out.println("Array is Empty");
+      return;
+    }
+    arr[lastIndex] = -1;
+  }
+
+  static void deletionAtMid(int arr[], int index)
+  {
+    int lastIndex=arr.length-1;
+    if(arr.length<=0)
+    {
+      System.out.println("Array is Empty");
+      return;
+    }
+    // shifting logic
+    for(int i=index+1;i<arr.length;i++)
+    {
+      arr[i-1] = arr[i];
+    }
+    arr[lastIndex] = -1;
+  }
+
+  static void update(int arr[], int index,int val)
+  {
+    if(arr.length<=0)
+    {
+      System.out.println("Array is Empty");
+      return;
+    }
+    if(index>=arr.length || index<0)
+    {
+      System.out.println("Index is incorrect");
+      return;
+    }
+    arr[index] = val;
+  }
+
   static void insertionAtBegining(int arr[],int element)
   {
     int lastIndex = arr.length-1;
